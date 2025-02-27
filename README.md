@@ -17,14 +17,8 @@
    echo PRIVATE_KEY=0x2xxxxxxxxxxx > .env
    ```
    
-4. **Create and Use Screen**
-   ```bash
-   screen -S monad
-   ```
-   
-5. **Run the Application**
+4. **Run the Application**
    ```bash
    node main.js
    ```
    
-(Press Ctrl + A, then D to keep the session running in the background.)
