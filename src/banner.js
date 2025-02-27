@@ -4,26 +4,37 @@ function displayHeader() {
   process.stdout.write("\x1Bc"); 
 
   console.log(`
-            ${"██╗    ██╗ ██╗ ███╗   ██╗ ███████╗ ███╗   ██╗ ██╗ ██████╗".rainbow}  
-            ${"██║    ██║ ██║ ████╗  ██║ ██╔════╝ ████╗  ██║ ██║ ██╔══██╗".cyan} 
-            ${"██║ █╗ ██║ ██║ ██╔██╗ ██║ ███████╗ ██╔██╗ ██║ ██║ ██████╔╝".green} 
-            ${"██║███╗██║ ██║ ██║╚██╗██║ ╚════██║ ██║╚██╗██║ ██║ ██╔═══╝".yellow}  
-            ${"╚███╔███╔╝ ██║ ██║ ╚████║ ███████║ ██║ ╚████║ ██║ ██║".blue}      
-            ${" ╚══╝╚══╝  ╚═╝ ╚═╝  ╚═══╝ ╚══════╝ ╚═╝  ╚═══╝ ╚═╝ ╚═╝".red}  
+%c __  __       _            
+%c|  \\/  |     (_)           
+%c| \\  / | __ _ _ _ __   ___ 
+%c| |\\/| |/ _\` | | '_ \\ / _ \\
+%c| |  | | (_| | | | | |  __/
+%c|_|  |_|__,|_|_| |_|___|
 
-            ${"🔥 Join grup TG:".bold} ${"@winsnip".underline.brightCyan}
-
-            ${"✅ Prepare faucet MON".bold}
-            ${"✅ 1 IP 1 wallet".bold}
-            ${"❌ No multi address".bold}
-            ${"✅ Gas fee auto detect".bold}
-            ${"✅ Send address random amount & random generate new address".bold}
-            ${"✅ If the transaction fails, it is very normal because the network is congested,".bold}
-            ${"   and the testnet chain, if all of them are successful, is called Mainnet.".bold}
-            ${"❤️  Please appreciate with join my group:".bold} ${"https://t.me/winsnip".underline.brightCyan}
-            ${"❤️  This ensures users can join the Telegram community easily and stay engaged with updates and discussions.".bold}
-            ${"❤️  Don't forget Trakteer Coffee:".bold} ${"https://trakteer.id/Winsnipsupport/tip".underline.brightCyan}
-  `.split("\n").join("\n")); 
+%c--------------------------------------
+%c      Monad Testnet Script
+%c--------------------------------------
+%cAuthor: fznrival
+%cGitHub: https://github.com/fznrival
+%cProject: Monad
+%cCreated: 2025
+%c--------------------------------------
+`,
+  'color: #00ff00;', // Hijau untuk baris 1 ASCII
+  'color: #00ff00;', // Hijau untuk baris 2 ASCII
+  'color: #00ff00;', // Hijau untuk baris 3 ASCII
+  'color: #00ff00;', // Hijau untuk baris 4 ASCII
+  'color: #00ff00;', // Hijau untuk baris 5 ASCII
+  'color: #00ff00;', // Hijau untuk baris 6 ASCII
+  'color: #ffcc00;', // Kuning untuk garis pembatas atas
+  'color: #ffffff;', // Putih untuk judul
+  'color: #ffcc00;', // Kuning untuk garis pembatas tengah
+  'color: #cyan;',    // Cyan untuk Author
+  'color: #cyan;',    // Cyan untuk GitHub
+  'color: #cyan;',    // Cyan untuk Project
+  'color: #cyan;',    // Cyan untuk Created
+  'color: #ffcc00;'  // Kuning untuk garis pembatas bawah
+);
 }
 
 module.exports = displayHeader;
