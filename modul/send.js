@@ -24,28 +24,29 @@ const network = {
 
 const provider = new ethers.providers.JsonRpcProvider(network.rpc);
 
-function generateNewWallet() {
-    const wallet = ethers.Wallet.createRandom();
-    return {
-        address: wallet.address,
-        privateKey: wallet.privateKey
-    };
+// Baca daftar alamat dari recipient.txt
+const recipients = fs.readFileSync('recipient.txt', 'utf8')
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line && ethers.utils.isAddress(line)); // Hanya ambil alamat valid
+
+if (recipients.length === 0) {
+    console.error('Tidak ada alamat valid di recipient.txt'.red);
+    process.exit(1);
 }
 
-async function transferTokens(wallet, index) {
-    const newWallet = generateNewWallet();
-    
+async function transferTokens(wallet, recipient, index) {
     const randomAmount = (Math.max(Math.random() * (0.001 - 0.0001) + 0.0001, 0.0001)).toFixed(6);
     
     const tx = {
-        to: newWallet.address,
+        to: recipient,
         value: ethers.utils.parseUnits(randomAmount, 6) 
     };
 
     const transaction = await wallet.sendTransaction(tx);
-    const shortAddress = newWallet.address.slice(-5); 
+    const shortAddress = recipient.slice(-5); 
 
-    console.log(`✅ (${index + 1}/50) [confirm] : ${randomAmount} ${network.symbol} sent to ${shortAddress} : ${transaction.hash}`.green);
+    console.log(`✅ (${index + 1}/${recipients.length}) [confirm] : ${randomAmount} ${network.symbol} sent to ${shortAddress} : ${transaction.hash}`.green);
 }
 
 async function handleTokenTransfers() {
@@ -53,8 +54,8 @@ async function handleTokenTransfers() {
 
     console.log(`🪫  Starting AutoSend ⏩⏩⏩⏩`.blue);
     console.log(` `);
-    for (let i = 0; i < 50; i++) {
-        await transferTokens(wallet, i);
+    for (let i = 0; i < recipients.length; i++) {
+        await transferTokens(wallet, recipients[i], i);
     }
 
     console.log('⏩ \nAll transactions completed successfully!'.green);
