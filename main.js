@@ -14,7 +14,6 @@ async function loadChalk() {
 
   const scripts = [
     { name: "Uniswap", path: "./modul/uniswap.js" },
-    { name: "Deploy Kontrak", path: "./modul/deploy.mjs" },
     { name: "Rubic Swap", path: "./modul/rubic.js" },
     { name: "Bean Swap", path: "./modul/bean.js" },
     { name: "Magma Staking", path: "./modul/magma.js" },
